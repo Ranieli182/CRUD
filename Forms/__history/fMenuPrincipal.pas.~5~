@@ -1,0 +1,44 @@
+unit fMenuPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.ExtCtrls,
+  fConsultaFuncionario;
+
+type
+  TfrmMenuPrincipal = class(TForm)
+    Panel1: TPanel;
+    MainMenu1: TMainMenu;
+    Usurios1: TMenuItem;
+    Sair1: TMenuItem;
+    Cidades1: TMenuItem;
+    procedure Usurios1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmMenuPrincipal: TfrmMenuPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmMenuPrincipal.Usurios1Click(Sender: TObject);
+var
+  lConsultaFuncionario: TfrmConsultaFuncionario;
+begin
+  lConsultaFuncionario := TfrmConsultaFuncionario.Create(nil);
+  try
+    lConsultaFuncionario.ShowModal;
+  finally
+    lConsultaFuncionario.Free;
+  end;
+end;
+
+end.

@@ -1,0 +1,156 @@
+object dtmConexao: TdtmConexao
+  OldCreateOrder = False
+  Height = 209
+  Width = 320
+  object FDPhysFBDriverLink: TFDPhysFBDriverLink
+    Left = 32
+    Top = 56
+  end
+  object FDConnection: TFDConnection
+    Params.Strings = (
+      'Database=D:\BancoDeDadosFB\BANCO.FDB'
+      'User_Name=SYSDBA'
+      'Password=masterkey'
+      'DriverID=FB')
+    Connected = True
+    Left = 32
+    Top = 8
+  end
+  object dtsClientes: TDataSource
+    DataSet = qryConsultaFuncionario
+    Left = 232
+    Top = 8
+  end
+  object qryFuncionario: TFDQuery
+    Connection = FDConnection
+    SQL.Strings = (
+      'SELECT * FROM CLIENTE')
+    Left = 160
+    Top = 8
+    object qryFuncionarioID: TIntegerField
+      DisplayLabel = 'C'#243'digo'
+      FieldName = 'ID'
+      Origin = 'ID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object qryFuncionarioNOME: TStringField
+      DisplayLabel = 'Nome'
+      FieldName = 'NOME'
+      Origin = 'NOME'
+      Size = 50
+    end
+    object qryFuncionarioENDERECO: TStringField
+      DisplayLabel = 'Endere'#231'o'
+      FieldName = 'ENDERECO'
+      Origin = 'ENDERECO'
+      Size = 80
+    end
+    object qryFuncionarioCPF: TStringField
+      FieldName = 'CPF'
+      Origin = 'CPF'
+      Size = 15
+    end
+    object qryFuncionarioTELEFONE: TStringField
+      FieldName = 'TELEFONE'
+      Origin = 'TELEFONE'
+      Size = 15
+    end
+    object qryFuncionarioEMAIL: TStringField
+      FieldName = 'EMAIL'
+      Origin = 'EMAIL'
+      Size = 50
+    end
+    object qryFuncionarioCIDADE: TStringField
+      FieldName = 'CIDADE'
+      Origin = 'CIDADE'
+      Size = 30
+    end
+    object qryFuncionarioCNPJ: TStringField
+      FieldName = 'CNPJ'
+      Origin = 'CNPJ'
+    end
+    object qryFuncionarioTIPO: TStringField
+      FieldName = 'TIPO'
+      Origin = 'TIPO'
+      Size = 2
+    end
+    object qryFuncionarioCEP: TStringField
+      FieldName = 'CEP'
+      Origin = 'CEP'
+      Size = 10
+    end
+    object qryFuncionarioBAIRRO: TStringField
+      FieldName = 'BAIRRO'
+      Origin = 'BAIRRO'
+    end
+  end
+  object qryConsultaFuncionario: TFDQuery
+    Connection = FDConnection
+    SQL.Strings = (
+      'SELECT * FROM CLIENTE')
+    Left = 160
+    Top = 56
+    object qryConsultaFuncionarioID: TIntegerField
+      FieldName = 'ID'
+      Origin = 'ID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object qryConsultaFuncionarioNOME: TStringField
+      DisplayLabel = 'Nome'
+      FieldName = 'NOME'
+      Origin = 'NOME'
+      Size = 40
+    end
+    object qryConsultaFuncionarioENDERECO: TStringField
+      DisplayLabel = 'Endere'#231'o'
+      FieldName = 'ENDERECO'
+      Origin = 'ENDERECO'
+      Size = 80
+    end
+    object qryConsultaFuncionarioBAIRRO: TStringField
+      DisplayLabel = 'Bairro'
+      FieldName = 'BAIRRO'
+      Origin = 'BAIRRO'
+    end
+    object qryConsultaFuncionarioCPF: TStringField
+      FieldName = 'CPF'
+      Origin = 'CPF'
+      Size = 15
+    end
+    object qryConsultaFuncionarioTELEFONE: TStringField
+      DisplayLabel = 'Telefone'
+      FieldName = 'TELEFONE'
+      Origin = 'TELEFONE'
+      Size = 15
+    end
+    object qryConsultaFuncionarioEMAIL: TStringField
+      DisplayLabel = 'E-Mail'
+      FieldName = 'EMAIL'
+      Origin = 'EMAIL'
+      Size = 50
+    end
+    object qryConsultaFuncionarioCIDADE: TStringField
+      DisplayLabel = 'Cidade'
+      FieldName = 'CIDADE'
+      Origin = 'CIDADE'
+      Size = 30
+    end
+    object qryConsultaFuncionarioCNPJ: TStringField
+      FieldName = 'CNPJ'
+      Origin = 'CNPJ'
+    end
+    object qryConsultaFuncionarioCEP: TStringField
+      FieldName = 'CEP'
+      Origin = 'CEP'
+      Size = 10
+    end
+    object qryConsultaFuncionarioTIPO: TStringField
+      DisplayLabel = 'Tipo'
+      FieldName = 'TIPO'
+      Origin = 'TIPO'
+      Size = 2
+    end
+  end
+end

@@ -1,0 +1,59 @@
+unit fCadastroCidade;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls;
+
+type
+  TfrmCadastroCidade = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    edtCidade: TEdit;
+    Label1: TLabel;
+    cbxUF: TComboBox;
+    Label2: TLabel;
+    edtPais: TEdit;
+    Label3: TLabel;
+    btnCancelar: TButton;
+    btnSalvar: TButton;
+    procedure btnSalvarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    Tipo: string;
+    CodigoCidade: Integer;
+    procedure IncluirCidade;
+    procedure AlterarCidade;
+
+  end;
+
+var
+  frmCadastroCidade: TfrmCadastroCidade;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmCadastroCidade.btnSalvarClick(Sender: TObject);
+begin
+  if (Trim(edtCidade.Text) = EmptyStr) then
+  begin
+
+  end
+  else if Tipo = 'Incluir' then
+  begin
+    IncluirCidade;
+  end
+  else if Tipo = 'Alterar' then
+  begin
+    AlterarCidade;
+  end;
+  close;
+
+end;
+
+end.

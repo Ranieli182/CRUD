@@ -1,0 +1,118 @@
+unit fCadastroCidade;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, uCidade;
+
+type
+  TfrmCadastroCidade = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    edtCidade: TEdit;
+    Label1: TLabel;
+    cbxUF: TComboBox;
+    Label2: TLabel;
+    edtPais: TEdit;
+    Label3: TLabel;
+    btnCancelar: TButton;
+    btnSalvar: TButton;
+    lblCodigoCliente: TLabel;
+    edtCodigo: TEdit;
+    procedure btnSalvarClick(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    Tipo: string;
+    CodigoCidade: Integer;
+    procedure IncluirCidade;
+    procedure AlterarCidade;
+
+  end;
+
+var
+  frmCadastroCidade: TfrmCadastroCidade;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmCadastroCidade.AlterarCidade;
+var
+  lCidade: TCidade;
+begin
+  lCidade := TCidade.Create;
+  try
+    lCidade.CODIGO := CodigoCidade;
+    lCidade.CIDADE := edtCidade.Text;
+    lCidade.UF := cbxUF.Text;
+    lCidade.PAIS := edtPais.Text;
+
+    lCidade.Alterar(true);
+  finally
+    lCidade.Free;
+  end;
+end;
+
+procedure TfrmCadastroCidade.btnCancelarClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TfrmCadastroCidade.btnSalvarClick(Sender: TObject);
+begin
+  if (Trim(edtCidade.Text) = EmptyStr) then
+  begin
+    ShowMessage('Campo obrigatório não informado, favor preencher a Cidade.');
+    edtCidade.SetFocus;
+  end
+  else if Tipo = 'Incluir' then
+  begin
+    IncluirCidade;
+  end
+  else if Tipo = 'Alterar' then
+  begin
+    AlterarCidade;
+  end;
+  Close;
+
+end;
+
+procedure TfrmCadastroCidade.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+  if (Key = #13) then
+  begin
+    Key := #0;
+    Perform(wm_NextDlgCtl, 0, 0);
+  end;
+end;
+
+procedure TfrmCadastroCidade.FormShow(Sender: TObject);
+begin
+  edtCidade.SetFocus;
+end;
+
+procedure TfrmCadastroCidade.IncluirCidade;
+var
+  lCidade: TCidade;
+begin
+  lCidade := TCidade.Create;
+  try
+    lCidade.CODIGO := CodigoCidade;
+    lCidade.CIDADE := edtCidade.Text;
+    lCidade.UF := cbxUF.Text;
+    lCidade.PAIS := edtPais.Text;
+
+    lCidade.Incluir(true);
+  finally
+    lCidade.Free;
+  end;
+end;
+
+end.

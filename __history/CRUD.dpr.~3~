@@ -1,0 +1,21 @@
+program CRUD;
+
+uses
+  Vcl.Forms,
+  fMenuPrincipal in 'Forms\fMenuPrincipal.pas' {frmMenuPrincipal},
+  uFuncionario in 'Classes\uFuncionario.pas',
+  dConexao in 'dConexao.pas' {dtmConexao: TDataModule},
+  fConsultaFuncionario in 'D:\ProjetoCadastro\Forms\fConsultaFuncionario.pas' {frmConsultaFuncionario},
+  fCadastroFuncionario in 'D:\ProjetoCadastro\Forms\fCadastroFuncionario.pas' {frmCadastroFuncionario};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmMenuPrincipal, frmMenuPrincipal);
+  Application.CreateForm(TdtmConexao, dtmConexao);
+  Application.CreateForm(TfrmConsultaFuncionario, frmConsultaFuncionario);
+  Application.CreateForm(TfrmCadastroFuncionario, frmCadastroFuncionario);
+  Application.Run;
+end.

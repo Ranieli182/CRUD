@@ -1,0 +1,15 @@
+program CRUD;
+
+uses
+  Vcl.Forms,
+  fMenuPrincipal in 'Forms\fMenuPrincipal.pas' {Form1},
+  uCadastroFuncionario in 'Classes\uCadastroFuncionario.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TForm1, Form1);
+  Application.Run;
+end.

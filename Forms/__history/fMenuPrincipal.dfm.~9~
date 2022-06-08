@@ -1,0 +1,43 @@
+object frmMenuPrincipal: TfrmMenuPrincipal
+  Left = 0
+  Top = 0
+  Caption = 'Menu Principal'
+  ClientHeight = 279
+  ClientWidth = 635
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  Menu = MainMenu1
+  OldCreateOrder = False
+  WindowState = wsMaximized
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 635
+    Height = 279
+    Align = alClient
+    Color = clWhite
+    ParentBackground = False
+    TabOrder = 0
+  end
+  object MainMenu1: TMainMenu
+    Left = 16
+    Top = 48
+    object Funcionarios1: TMenuItem
+      Caption = 'Funcionarios'
+      OnClick = Funcionarios1Click
+    end
+    object Cidades1: TMenuItem
+      Caption = 'Cidades'
+      OnClick = Cidades1Click
+    end
+    object Sair1: TMenuItem
+      Caption = 'Sair'
+    end
+  end
+end
